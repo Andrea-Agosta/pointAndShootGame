@@ -4,3 +4,6 @@ const width = window.innerWidth;
 const height = window.innerHeight;
 
 let ravens = [];
+class Raven {
+  constructor() {}
+}
