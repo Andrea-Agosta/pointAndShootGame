@@ -2,6 +2,9 @@ const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
 const width = window.innerWidth;
 const height = window.innerHeight;
+let timeToNextRave = 0;
+let ravenInterval = 500;
+let lastTime = 0;
 
 let ravens = [];
 class Raven {
@@ -20,3 +23,20 @@ class Raven {
     ctx.fillRect(this.x, this.y, this.width, this.height);
   };
 }
+
+const raven = new Raven();
+
+function animate(timestamp){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    let deltaTime = timestamp - lastTime;
+    lastTime = timestamp;
+    timeToNextRave += deltaTime;
+    if(timeToNextRave > ravenInterval){
+        ravens.push(new Raven());
+        timeToNextRave = 0;
+    };
+    [...ravens].forEach( (object) => object.update());
+    [...ravens].forEach( (object) => object.draw());
+    requestAnimationFrame(animate);
+}
+animate(0);
