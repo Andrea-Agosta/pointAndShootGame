@@ -13,4 +13,5 @@ class Raven {
     this.directionX = Math.random() * 5 + 3;
     this.directionY = Math.random() * 5 - 2.5;
   }
+  update() {};
 }
