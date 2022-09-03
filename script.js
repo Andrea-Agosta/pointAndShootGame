@@ -5,5 +5,10 @@ const height = window.innerHeight;
 
 let ravens = [];
 class Raven {
-  constructor() {}
+  constructor() {
+    this.width = 100;
+    this.height = 50;
+    this.x = canvas.width;
+    this.y = canvas.height;
+  }
 }
