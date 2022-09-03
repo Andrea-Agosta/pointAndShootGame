@@ -9,6 +9,6 @@ class Raven {
     this.width = 100;
     this.height = 50;
     this.x = canvas.width;
-    this.y = canvas.height;
+    this.y = Math.random() * canvas.height;
   }
 }
